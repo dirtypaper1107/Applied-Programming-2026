@@ -8,10 +8,10 @@ from pathlib import Path
 
 class EMGTCPServer:
     def __init__(self, host='localhost', port=12345,
-                 pkl_file='D:/PhD/Teaching/Applied-Programming-2026/FullSolution/recording.pkl'):
+                 pkl_file=None):
         self.host = host
         self.port = port
-        self.pkl_file = pkl_file
+        self.pkl_file = pkl_file or Path(__file__).resolve().parents[1] / 'recording.pkl'
         self.server_socket = None
         self.clients = []
         self.running = False
